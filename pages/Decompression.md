@@ -59,6 +59,9 @@ defp decompress_with_algorithm("deflate", data),
 defp decompress_data("identity", data),
   do: data
 
+defp decompress_data(nil, data),
+  do: data
+
 defp decompress_data(algorithm, data),
   do: raise "unsupported decompression algorithm: #{inspect(algorithm)}"
 ```
